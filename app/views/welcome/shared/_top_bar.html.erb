@@ -1,0 +1,122 @@
+ <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="flex justify-end mr-0 md:mr-20 fixed-top text-sm">
+    <div class="flex">
+      <div class="contact-info flex align-items-center">
+      <!-- The button to open modal -->
+        <label for="donate-modal-top-bar" class="text-sm font-medium">
+          <i class="bi bi-phone d-flex align-items-center ">Donnez</i>
+        </label>
+      </div>
+
+      <div class="flex mx-2 md:mx-4">
+        <i class=" bi bi-unlock d-flex align-items-end">
+          <%= link_to 'Se connecter', "action-plus-sign-in", class:"text-sm font-medium" %>
+        </i>
+      </div>
+      <% if @homeMedias.blank? %>
+        <% else %>
+      <% @HomeMedias.each do |medium| %>
+        <div class="social flex mx-2 md:mx-4">
+            <a href="<%= medium.facebook %>">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="<%= medium.instagram %>">
+                <i class="bi bi-instagram mx-2 md:mx-4"></i>
+            </a>
+            <a href="<%= medium.twitter %>">
+                <i class="bi bi-twitter"></i>
+            </a>
+
+            <a href="<%= medium.linkedin %>">
+                <i class="bi bi-linkedin mx-2 md:mx-4"></i>
+            </a>
+            <a href="<%= medium.youtube %>">
+                <i class="bi bi-youtube"></i>
+            </a>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="donate-modal-top-bar" class="modal-toggle"/>
+
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="donate-modal-top-bar" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <!-- Form Don-->
+    <div class="mt-5">
+<h2 class="rounded-b-xl rounded-tr-xl text-xl uppercase font-bold flex items-center w-full p-2 text-base text-white text-left bg-red-500 ">
+
+        <span>Faire un don a Action<sup class="">+</sup></span>
+      </h2>
+    </div>
+    <form action="" class="">
+    
+      <div class="flex my-2">
+        <!-- Donator FullName-->
+        <div class="relative">
+          <label for="donator_fullname" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Nom du donateur</label>
+          <input type="text" id="name" class="p-2 text-gray-600 border focus:outline focus:outline-blue-500  font-normal text-sm rounded" placeholder="Nom Complet :"/>
+        </div>
+
+        <!-- Donator Carte Number-->
+        <div class="relative ml-2">
+          <label for="carte_number" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">N° de la carte</label>
+          <input type="text" id="nb_carte" class="p-2 text-gray-600 border focus:outline focus:outline-blue-500  font-normal text-sm rounded" placeholder="xxx xxx xxx xxx"/>
+        </div>
+      </div>
+      <div class="flex my-2">
+        <div class="relative">
+          <label for="expiry" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Date D'Expiration</label>
+<input id="expiry" class="text-gray-600 border focus:outline focus:outline-blue-500  font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="MM/YY"/>
+
+        </div>
+
+        <!-- CVC-->
+        <div class="relative ml-2">
+          <label for="cvc" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">CVC</label>
+<input id="cvc" class="mb-2 text-gray-600 border focus:outline focus:outline-blue-500  font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="MM/YY"/>
+
+        </div>
+      </div>
+      
+      <div class="relative mb-2 text-xl">
+        <label class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Montant du Don</label>
+          <hr class="mb-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">10$</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked="checked">
+            <label class="form-check-label" for="inlineRadio2">20$</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+            <label class="form-check-label" for="inlineRadio3">50$</label>
+          </div>
+        <input class="text-gray-600 border focus:outline focus:outline-blue-500  font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Autres montant"/>
+        </div>
+
+        <div class="flex items-center justify-start w-full">
+         
+      <button class="btn rounded-md hover:bg-green-600 bg-green-700">
+      Don Mensuel
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      </button>
+
+          <button class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3
+            bg-gray-300 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400
+            hover:bg-gray-300 border rounded px-8 py-2 text-sm">
+            Une Fois
+          </button>
+        </div>
+        
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,40 @@
+<!-- ======= Chefs Section ======= -->
+    <section id="chefs" class="chefs">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2 class="text-black font-bold text-4xl px-3">Engagez avec Action<sup>+</sup> </h2>
+          <p class="text-black font-bold text-4xl px-3">Bénévols devoués</p>
+        </div>
+
+      <div class="row">
+        <% @HomeBenevols.each do |hb| %>
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <% if hb.img.attached? %>
+                <%= image_tag(hb.img ,class:"img-fluid") %>
+              <% else %>
+                <%= image_tag("media/1.jpeg", class:"img-fluid", alt:"") %>
+              <% end %>
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4><%= hb.full_name %></h4>
+                  <span><%= hb.role %> </span>
+                </div>
+                <div class="social">
+                  <a href="<%= hb.link_tw %>"><i class="bi bi-twitter"></i></a>
+                  <a href="<%= hb.link_fb %>"><i class="bi bi-facebook"></i></a>
+                 
+                  <a href="<%= hb.link_ldin %>"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    
+        
+
+      </div>
+    </section><!-- End Chefs Section -->

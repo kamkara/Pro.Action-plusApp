@@ -1,0 +1,75 @@
+<!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="footer-info">
+            
+              <h3>Action<sup>+</sup></h3>
+              <% if @homeMedias.blank? %>
+                <% else %>
+              <% @HomeMedias.each do |url| %>
+                <p class="text-xl">
+                  Adresse: <%= url.adresse_action %><br><br>
+                  <strong>Contact:</strong> <%= url.email_action %><br>
+                  <strong>Email:</strong> <%= url.email_action %><br>
+                </p>
+                <div class="social flex mx-2 md:mx-4 mt-4">
+                  <a href="<%= url.facebook %>">
+                      <i class="text-xl bi bi-facebook"></i>
+                  </a>
+                  <a href="<%= url.instagram %>">
+                      <i class="text-xl bi bi-instagram mx-2 md:mx-4"></i>
+                  </a>
+                  <a href="<%= url.twitter %>">
+                      <i class="text-xl bi bi-twitter"></i>
+                  </a>
+
+                  <a href="<%= url.linkedin %>">
+                      <i class="text-xl bi bi-linkedin mx-2 md:mx-4"></i>
+                  </a>
+                  <a href="<%= url.youtube %>">
+                      <i class="text-xl bi bi-youtube"></i>
+                  </a>
+                </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="col-md-4 footer-links">
+            <h4>Liens utiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="<%= root_path %>">Accueil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/mot-fondateur">Nous découvrir</a></li>
+              <li><i class="bx bx-chevron-right"></i> <%= link_to "Nos Agissons ensemble", "/agisons-ensemble" %></li>
+              <li><i class="bx bx-chevron-right"></i> <%= link_to "Conditions  generale d'utilisation", "/conditions-generale-utilisation" %></li>
+              <li><i class="bx bx-chevron-right"></i> <%= link_to "Politique de confidentialité", "/protection-donnees" %></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 footer-links">
+            <h4>Champs d'Action<sup>+</sup></h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="action-plus-eau-potable">Eau Potable</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="action-plus-electricite">Eléctricité</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="action-plus-education">Education</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Action<sup class="">+</sup></span></strong>. Tous droits reservé
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+<!-- preloader -->
+<%#= render "welcome/shared/preloader" %>

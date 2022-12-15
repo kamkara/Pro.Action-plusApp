@@ -1,0 +1,39 @@
+<!-- Top Bar -->
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-cente bg-white pt-4 pb-2 uppercase text-4xl">
+<%= render "welcome/shared/top_bar" %>
+  
+    <div class="flex justify-between mx-auto ">
+      <h1 class="logo">
+        <%= link_to root_path do %> 
+          <%= image_tag 'logo/logo-action.png', alt:"logo action+", class:"h-14 w-14 mr-14 ml-6 rounded-full" %>
+
+        <% end %>
+      </h1>
+      <nav id="navbar" class="navbar order-last order-lg-0 font-semibold">
+      
+        <ul class="text-6xl">
+          <li><%= link_to 'Accueil', root_path , class:"nav-link scrollto active " %></li>
+          <li><%= link_to 'Nous Découvrir', "mot-fondateur", class:"nav-link scrollto" %></li>
+          <li><%= link_to 'Nous Aider', "nos-campagnes-financements", class:"nav-link scrollto" %></li>
+          <li><%= link_to 'Actualités', "nos-articles", class:"nav-link scrollto" %></li>
+          <li><%= link_to "Agissons Ensemble", "agisons-ensemble", class:"nav-link scrollto" %></li> 
+          <li class="dropdown"><a href="#"><span>En Action</span> <i class="dropdown-toggle"></i></a>
+            <ul>
+              <li><a href="action-plus-eau-potable">EAUX POTABLE</a></li>
+              <li><a href="action-plus-electricite">ELECTRICITÉ</a></li>
+              <li><a href="action-plus-education">EDUCATION</a></li>
+            </ul>
+          </li>         
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+     
+      <%= link_to  "adhesion_path", class:"btn-book ml-6 animated fadeInUp 
+            text-white bg-red-500 hover:bg-red-400 focus:outline
+              focus:ring-red-300 font-bold rounded-b-xl rounded-tr-xl text-xl px-5
+              py-2.5 text-center mr-2 mb-2" do %>
+        <span class="">Adhérer</span>
+      <% end %>
+    </div>
+  </header><!-- End Header -->

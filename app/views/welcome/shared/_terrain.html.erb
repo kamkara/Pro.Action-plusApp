@@ -1,0 +1,47 @@
+<!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h2 class="section-title text-center font-bold text-4xl px-3">Action<sup>+</sup> sur le Terrain</h2>      
+        </div>
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <% @HomeCampagnes.each do |homeCamp| %>
+            <div class="col-lg-3">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item bg-blue-200">
+                  <a class="nav-link active show  bg-blue-200 hover:bg-blue-400"
+                   data-bs-toggle="<%= homeCamp.title %>" href="#<%= homeCamp.title %>">
+                  <span class="font-bold"><%= homeCamp.title %></span> 
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-9 mt-4 mt-lg-0">
+              <div class="tab-content">
+                <div class="tab-pane active show" id="<%= homeCamp.title %>">
+                  <div class="row">
+                    <div class="col-lg-8 details order-2 order-lg-1">
+                      <div class="">
+                        <%= link_to campagne_path(homeCamp), class:"hover:text-black text-black no-underline" do %>
+                            <%= truncate(strip_tags(homeCamp.content.to_s.html_safe), length: 400)%>
+                            <span class="text-red-500" id=start-reading><i class="mx-2">Lire plus >> </i></span>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <% if homeCamp.heroImg.attached? %>
+                        <%= image_tag(homeCamp.heroImg, alt:"", class:"img-fluid") %>
+                      <% else %>
+                        <%= image_tag "media/5.jpeg", alt:"", class:"img-fluid"%>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </section><!-- End Specials Section -->
