@@ -1,29 +1,87 @@
-<h2>Sign up</h2>
+<% @title="Compte Admin Action+" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<!-- component -->
+<div class="h-screen md:flex">
+    <div class="relative overflow-hidden md:flex w-1/3 bg-gradient-to-tr from-green-400 to-blue-600 i justify-around items-center hidden">
+        <div class="container">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <h1 class="text-white font-bold text-4xl font-sans">
+                <div class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+                    <p class="relative text-white">Compte Admin Action<sup>+</sup>
+                    </p>
+                </div>
+            </h1>
+            <p class="text-black mt-1">Vous voulez contribuer à sauver des vies ?
+                <br>
+                    Rejoignez les Admin de Action<sup>+</sup>
+                    !
+                    <br>
+                        <span class="font-semibold underline">
+                            C'est facile, gratuit et 1 minute suffira.</span>
+                    </p>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                </div>
+                <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+                <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+                <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+                <div class="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+            </div>
+            <div class="flex md:w-2/3 justify-center  items-center bg-white">
+                <div class="flex md:w-2/3 justify-center  items-center bg-white mx-2">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class:"form") do |f| %>
+                        <%= render "shared/flash/notices" %>
+                        <h1 class="text-gray-800 font-bold text-2xl mb-2">Vous et Action<sup>+</sup>
+                            Agisons Ensemble pour sauver des vies</h1>
+                        <p class="text-sm font-normal text-gray-600 mb-2">Devenez Administrateur Action<sup>+</sup>
+                        </p>
 
-<%= render "devise/shared/links" %>
+                        <div class="form-outline flex items-center mt-8 mb-2">
+                            <%= f.text_field :first_name, class:"form-control p-2 mr-2", placeholder:"Nom" %>
+                            <%= f.text_field :last_name, class:"form-control p-2", placeholder:"Prénom" %>
+                        </div>
+                        <%= f.email_field :email, placeholder:"Addresse Email", class:"p-2 form-control" %>
+                        <div class=" form-outline flex w-full py-2 mb-2">
+                            <%= f.text_field  :country,
+          class:"form-control p-2 mr-2", placeholder:"Pays de résidence" %>
+                            <%= f.text_field :full_contact, placeholder:"N° téléphone",
+         class:"form-control p-2" %>
+                        </div>
+                        <div class="form-outline">
+                            <%= f.password_field :password, class:"form-control p-2",
+         placeholder:"Mot de passe" %>
+                        </div>
+                        <%= f.hidden_field :status, value:"Admin" %>
+
+                        <div class="py-2 form-outline">
+                            <%= f.password_field :password_confirmation, class:" form-control p-2", 
+        placeholder:"confirmé votre mot de passe " %>
+                        </div>
+                        <div class="form-outline flex w-full py-4">
+                            <div class="mr-4">
+                                <p class="font-semibold">Vous êtes? :</p>
+                            </div>
+                            <%= f.radio_button :gender, 'Femme' %>
+                            <span class="mx-2">Femme</span>
+                            <%= f.radio_button :gender, 'Homme' %>
+                            <span class="mx-2">Homme</span>
+                        </div>
+                        <!-- component -->
+                        <div class="mb-2">
+                            <%= image_tag("logo/logo-action.png", 
+        class:"h-10 w-10 rounded-full object-cover object-center",
+         alt:"Avatar Upload") %>
+                        </div>
+
+                        <label class="cursor-pointer mt-2">
+                            <span class="mt-2 text-base leading-normal px-4 py-2 bg-blue-500
+                                        text-white text-sm rounded-full">Photo profil :</span>
+                            <%= f.file_field :avatar, class:"hidden" %>
+                        </label>
+
+                        <%= f.submit "Crée un compte admin", class:"block w-full bg-green-600 mt-2 py-2 pb-2 rounded-2xl text-white font-semibold mb-2" %>
+                    <% end %>
+                </div>
+            </div>
+
